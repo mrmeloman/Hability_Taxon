@@ -36,8 +36,8 @@ vignettes/*.pdf
 *.knit.md
 
 # Data
-.xlsx
-.xls
-.csv
+
 *.xlsx
+
+*.xls
 *.csv

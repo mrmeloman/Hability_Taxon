@@ -1,7 +1,12 @@
 #load libraries
 library("RTaxometrics")
 library("dplyr")
-library("corrplot")
+
+#Groups:
+#Direct-motor: 1, 2, 3, 7
+#Challenge: 4, 5, 6, 8, 10
+#Percept-cog: 9, 11
+#PH Amnesia: 12
 
 #====Dataset preparation====
 #Load the data
@@ -34,10 +39,11 @@ select(invol_purified, INV.3:INV.10) %>%
 #Create items groups
 invol$ideomotor <- invol$INV.1 + invol$INV.2 + invol$INV.3 + invol$INV.7
 invol$challenge <- invol$INV.4 + invol$INV.5 + invol$INV.6 + invol$INV.8 + invol$INV.10
-invol$cogper <- invol$INV.9 + invol$INV.11 + invol$INV.12
+invol$cogper <- invol$INV.9 + invol$INV.11
+invol$amnesia <- invol$INV.12
 
 #Check the data
-select(invol, ideomotor, challenge, cogper) %>%
+select(invol, ideomotor, challenge, cogper, amnesia) %>%
   CheckData()
 
 #====Involuntariness data: categories ("bad" items removed)====
@@ -55,7 +61,7 @@ select(invol_purified, ideomotor, challenge, cogper) %>%
 hab <- select(data, id, HGSHS.A1:HGSHS.A11, HGSHS.A12)
 
 #Check the data
-select(hab, HGSHS.A1:HGSHS.A11, HGSHS.A12) %>%
+select(hab, HGSHS.A1:HGSHS.A12) %>%
   CheckData()
 
 #====Hypnotic suggestibility data: separate items ("bad" items removed)====
@@ -71,10 +77,11 @@ select(hab_purified, HGSHS.A3:HGSHS.A10) %>%
 #Create items groups
 hab$ideomotor <- hab$HGSHS.A1 + hab$HGSHS.A2 + hab$HGSHS.A3 + hab$HGSHS.A7
 hab$challenge <- hab$HGSHS.A4 + hab$HGSHS.A5 + hab$HGSHS.A6 + hab$HGSHS.A8 + hab$HGSHS.A10
-hab$cogper <- hab$HGSHS.A9 + hab$HGSHS.A11 + hab$HGSHS.A12
+hab$cogper <- hab$HGSHS.A9 + hab$HGSHS.A11
+hab$amnesia <- hab$HGSHS.A12
 
 #Check the data
-select(hab, ideomotor, challenge, cogper) %>%
+select(hab, ideomotor, challenge, cogper, amnesia) %>%
   CheckData()
 
 #====Hypnotic suggestibility data: categories ("bad" items removed)====

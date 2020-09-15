@@ -1,0 +1,169 @@
+---
+title: "Data check report 1"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+library("RTaxometrics")
+library("dplyr")
+```
+
+Load the data
+```{r}
+data <- read.csv("oxford_hgshsa_260820_modded.csv", sep = ";")
+```
+
+Get rid of N/A
+```{r}
+data <- na.omit(data)
+```
+We've lost 18 participants
+
+# Involuntariness data: separate items
+Create a subset with involuntariness ratings:
+```{r}
+invol <- select(data, id, INV.1:INV.12)
+```
+
+Headers for the resulting table:
+```{r echo=FALSE}
+colnames(invol)
+```
+
+
+Check the data
+```{r}
+select(invol, INV.1:INV.12) %>%
+  CheckData()
+```
+
+# Involuntariness data: separate items ("bad" items removed)
+
+Create a subset with involuntariness ratings without "bad" items:
+```{r}
+invol_purified <- select(data, id, INV.3:INV.10)
+```
+Headers for the resulting table:
+```{r echo=FALSE}
+colnames(invol_purified)
+```
+
+Check the data
+```{r}
+select(invol_purified, INV.3:INV.10) %>%
+  CheckData()
+```
+
+# Involuntariness data: categories
+
+Create items groups
+```{r}
+invol$ideomotor <- invol$INV.1 + invol$INV.2 + invol$INV.3 + invol$INV.7
+invol$challenge <- invol$INV.4 + invol$INV.5 + invol$INV.6 + invol$INV.8 + invol$INV.10
+invol$cogper <- invol$INV.9 + invol$INV.11 + invol$INV.12
+```
+
+Headers for the resulting table (showing only groups columns and id):
+```{r echo=FALSE}
+select(invol, id, ideomotor, challenge, cogper) %>%
+  colnames()
+```
+
+Check the data
+```{r}
+select(invol, ideomotor, challenge, cogper) %>%
+  CheckData()
+```
+
+# Involuntariness data: categories ("bad" items removed)
+
+Create items groups
+```{r}
+invol_purified$ideomotor <- invol_purified$INV.3 + invol_purified$INV.7
+invol_purified$challenge <- invol_purified$INV.4 + invol_purified$INV.5 + invol_purified$INV.6 + invol_purified$INV.8 + invol_purified$INV.10
+invol_purified$cogper <- invol_purified$INV.9
+```
+
+Headers for the resulting table (showing only groups columns and id):
+```{r echo=FALSE}
+select(invol_purified, id, ideomotor, challenge, cogper) %>%
+  colnames()
+```
+
+Check the data
+```{r}
+select(invol_purified, ideomotor, challenge, cogper) %>%
+  CheckData()
+```
+
+# Hypnotic suggestibility data: separate items
+
+Create a H. suggestibility subset
+```{r}
+hab <- select(data, id, HGSHS.A1:HGSHS.A11, HGSHS.A12)
+```
+
+Headers for the resulting table (showing only groups columns and id):
+```{r echo=FALSE}
+colnames(hab)
+```
+
+Check the data
+```{r error = TRUE}
+select(hab, HGSHS.A1:HGSHS.A11, HGSHS.A12) %>%
+  CheckData()
+```
+
+
+# Hypnotic suggestibility data: separate items ("bad" items removed)
+
+Create a H. suggestibility subset without "bad" items
+```{r}
+hab_purified <- select(data, id, HGSHS.A3:HGSHS.A10)
+```
+
+Check the data
+```{r error = TRUE}
+select(hab_purified, HGSHS.A3:HGSHS.A10) %>%
+  CheckData()
+```
+
+# Hypnotic suggestibility data: categories
+
+Create items groups
+```{r}
+hab$ideomotor <- hab$HGSHS.A1 + hab$HGSHS.A2 + hab$HGSHS.A3 + hab$HGSHS.A7
+hab$challenge <- hab$HGSHS.A4 + hab$HGSHS.A5 + hab$HGSHS.A6 + hab$HGSHS.A8 + hab$HGSHS.A10
+hab$cogper <- hab$HGSHS.A9 + hab$HGSHS.A11 + hab$HGSHS.A12
+```
+
+Headers for the resulting table (showing only groups columns and id):
+```{r echo=FALSE}
+select(hab, id, ideomotor, challenge, cogper) %>%
+  colnames()
+```
+
+Check the data
+```{r}
+select(hab, ideomotor, challenge, cogper) %>%
+  CheckData()
+```
+
+# Hypnotic suggestibility data: categories ("bad" items removed)
+
+Create items groups
+```{r}
+hab_purified$ideomotor <- hab_purified$HGSHS.A3 + hab_purified$HGSHS.A7
+hab_purified$challenge <- hab_purified$HGSHS.A4 + hab_purified$HGSHS.A5 + hab_purified$HGSHS.A6 + hab_purified$HGSHS.A8 + hab_purified$HGSHS.A10
+hab_purified$cogper <- hab_purified$HGSHS.A9
+```
+
+Check the data
+```{r error = TRUE}
+select(hab_purified, ideomotor, challenge, cogper) %>%
+  CheckData()
+```

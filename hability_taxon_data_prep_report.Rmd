@@ -1,5 +1,5 @@
 ---
-title: "Data check report 1"
+title: "Data check report 1.1"
 output: pdf_document
 ---
 
@@ -26,7 +26,7 @@ We've lost 18 participants
 # Involuntariness data: separate items
 Create a subset with involuntariness ratings:
 ```{r}
-invol <- select(data, id, INV.1:INV.12)
+invol <- select(data, INV.1:INV.12)
 ```
 
 Headers for the resulting table:
@@ -34,28 +34,35 @@ Headers for the resulting table:
 colnames(invol)
 ```
 
-
-Check the data
+Classify the data with .15 base rate:
 ```{r}
-select(invol, INV.1:INV.12) %>%
-  CheckData()
+invol15 <- ClassifyCases(invol, p = 0.15)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol15)
 ```
 
 # Involuntariness data: separate items ("bad" items removed)
 
 Create a subset with involuntariness ratings without "bad" items:
 ```{r}
-invol_purified <- select(data, id, INV.3:INV.10)
+invol_purified <- select(data, INV.3:INV.10)
 ```
 Headers for the resulting table:
 ```{r echo=FALSE}
 colnames(invol_purified)
 ```
 
-Check the data
+Classify the data with .15 base rate:
 ```{r}
-select(invol_purified, INV.3:INV.10) %>%
-  CheckData()
+invol_pur15 <- ClassifyCases(invol_purified, p = 0.15)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_pur15)
 ```
 
 # Involuntariness data: subscales
@@ -68,16 +75,21 @@ invol$cogper <- invol$INV.9 + invol$INV.11
 invol$amnesia <- invol$INV.12
 ```
 
-Headers for the resulting table (showing only subscales columns and id):
-```{r echo=FALSE}
-select(invol, id, ideomotor, challenge, cogper, amnesia) %>%
+Headers for the resulting table (showing only subscales columns):
+```{r echo = FALSE}
+select(invol, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
-Check the data
+Classify the data with .15 base rate:
 ```{r}
-select(invol, ideomotor, challenge, cogper, amnesia) %>%
-  CheckData()
+invol_subscales15 <- select(invol, ideomotor, challenge, cogper, amnesia)
+invol_subscales15 <- ClassifyCases(invol_subscales15, p = 0.15)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_subscales15)
 ```
 
 # Involuntariness data: subscales ("bad" items removed)
@@ -89,23 +101,28 @@ invol_purified$challenge <- invol_purified$INV.4 + invol_purified$INV.5 + invol_
 invol_purified$cogper <- invol_purified$INV.9
 ```
 
-Headers for the resulting table (showing only subscales columns and id):
+Headers for the resulting table (showing only subscales columns):
 ```{r echo=FALSE}
-select(invol_purified, id, ideomotor, challenge, cogper) %>%
+select(invol_purified, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
-Check the data
+Classify the data with .15 base rate:
 ```{r}
-select(invol_purified, ideomotor, challenge, cogper) %>%
-  CheckData()
+invol_subscales_pur15 <- select(invol_purified, ideomotor, challenge, cogper)
+invol_subscales_pur15 <- ClassifyCases(invol_subscales_pur15, p = 0.15)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_subscales_pur15)
 ```
 
 # Hypnotic suggestibility data: separate items
 
 Create a H. suggestibility subset
 ```{r}
-hab <- select(data, id, HGSHS.A1:HGSHS.A11, HGSHS.A12)
+hab <- select(data, HGSHS.A1:HGSHS.A11, HGSHS.A12)
 ```
 
 Headers for the resulting table:
@@ -113,10 +130,14 @@ Headers for the resulting table:
 colnames(hab)
 ```
 
-Check the data
+Classify the data with .15 base rate:
+```{r}
+hab15 <- ClassifyCases(hab, p = 0.15)
+```
+
+Check the data:
 ```{r error = TRUE}
-select(hab, HGSHS.A1:HGSHS.A12) %>%
-  CheckData()
+CheckData(hab15)
 ```
 
 
@@ -124,7 +145,7 @@ select(hab, HGSHS.A1:HGSHS.A12) %>%
 
 Create a H. suggestibility subset without "bad" items
 ```{r}
-hab_purified <- select(data, id, HGSHS.A3:HGSHS.A10)
+hab_purified <- select(data,  HGSHS.A3:HGSHS.A10)
 ```
 
 Headers for the resulting table:
@@ -132,10 +153,14 @@ Headers for the resulting table:
 colnames(hab_purified)
 ```
 
-Check the data
+Classify the data with .15 base rate:
+```{r}
+hab_pur15 <- ClassifyCases(hab_purified, p = 0.15)
+```
+
+Check the data:
 ```{r error = TRUE}
-select(hab_purified, HGSHS.A3:HGSHS.A10) %>%
-  CheckData()
+CheckData(hab_pur15)
 ```
 
 # Hypnotic suggestibility data: subscales
@@ -148,16 +173,21 @@ hab$cogper <- hab$HGSHS.A9 + hab$HGSHS.A11
 hab$amnesia <- hab$HGSHS.A12
 ```
 
-Headers for the resulting table (showing only subscales columns and id):
+Headers for the resulting table (showing only subscales columns):
 ```{r echo=FALSE}
-select(hab, id, ideomotor, challenge, cogper, amnesia) %>%
+select(hab, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
-Check the data
+Classify the data with .15 base rate:
+```{r}
+hab_subsc15 <- select(hab, ideomotor, challenge, cogper, amnesia)
+hab_subsc15 <- ClassifyCases(hab_subsc15, p = 0.15)
+```
+
+Check the data:
 ```{r error = TRUE}
-select(hab, ideomotor, challenge, cogper, amnesia) %>%
-  CheckData()
+CheckData(hab_subsc15)
 ```
 
 # Hypnotic suggestibility data: subscales ("bad" items removed)
@@ -169,14 +199,18 @@ hab_purified$challenge <- hab_purified$HGSHS.A4 + hab_purified$HGSHS.A5 + hab_pu
 hab_purified$cogper <- hab_purified$HGSHS.A9
 ```
 
-Headers for the resulting table (showing only subscales columns and id):
+Headers for the resulting table (showing only subscales columns):
 ```{r echo=FALSE}
-select(hab, id, ideomotor, challenge, cogper) %>%
+select(hab, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
-Check the data
+```{r}
+hab_subsc_pur15 <- select(hab, ideomotor, challenge, cogper)
+hab_subsc_pur15 <- ClassifyCases(hab_subsc_pur15, p = 0.15)
+```
+
+Check the data:
 ```{r error = TRUE}
-select(hab_purified, ideomotor, challenge, cogper) %>%
-  CheckData()
+CheckData(hab_subsc_pur15)
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Data check report 1.1"
+title: "Data check report 2.0"
 output: pdf_document
 ---
 
@@ -23,8 +23,12 @@ data <- na.omit(data)
 ```
 We've lost 18 participants
 
-# Involuntariness data: separate items
+# Checking the data
+
+## Involuntariness data: separate items
+
 Create a subset with involuntariness ratings:
+
 ```{r}
 invol <- select(data, INV.1:INV.12)
 ```
@@ -33,6 +37,8 @@ Headers for the resulting table:
 ```{r echo=FALSE}
 colnames(invol)
 ```
+
+### P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -44,7 +50,19 @@ Check the data:
 CheckData(invol15)
 ```
 
-# Involuntariness data: separate items ("bad" items removed)
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+invol10 <- ClassifyCases(invol, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol10)
+```
+
+## Involuntariness data: separate items ("bad" items removed)
 
 Create a subset with involuntariness ratings without "bad" items:
 ```{r}
@@ -54,6 +72,8 @@ Headers for the resulting table:
 ```{r echo=FALSE}
 colnames(invol_purified)
 ```
+
+### P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -65,7 +85,19 @@ Check the data:
 CheckData(invol_pur15)
 ```
 
-# Involuntariness data: subscales
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+invol_pur10 <- ClassifyCases(invol_purified, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_pur10)
+```
+
+## Involuntariness data: subscales
 
 Create subscales
 ```{r}
@@ -81,6 +113,8 @@ select(invol, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
+### P = 0.15
+
 Classify the data with .15 base rate:
 ```{r}
 invol_subscales15 <- select(invol, ideomotor, challenge, cogper, amnesia)
@@ -92,7 +126,21 @@ Check the data:
 CheckData(invol_subscales15)
 ```
 
-# Involuntariness data: subscales ("bad" items removed)
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+invol_subscales10 <- select(invol, ideomotor, challenge, cogper, amnesia)
+invol_subscales10 <- ClassifyCases(invol_subscales10, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_subscales10)
+```
+
+
+## Involuntariness data: subscales ("bad" items removed)
 
 Create subscales
 ```{r}
@@ -107,6 +155,8 @@ select(invol_purified, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
+### P = 0.15
+
 Classify the data with .15 base rate:
 ```{r}
 invol_subscales_pur15 <- select(invol_purified, ideomotor, challenge, cogper)
@@ -118,7 +168,21 @@ Check the data:
 CheckData(invol_subscales_pur15)
 ```
 
-# Hypnotic suggestibility data: separate items
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+invol_subscales_pur10 <- select(invol_purified, ideomotor, challenge, cogper)
+invol_subscales_pur10 <- ClassifyCases(invol_subscales_pur10, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(invol_subscales_pur10)
+```
+
+
+## Hypnotic suggestibility data: separate items
 
 Create a H. suggestibility subset
 ```{r}
@@ -130,6 +194,8 @@ Headers for the resulting table:
 colnames(hab)
 ```
 
+### P = 0.15
+
 Classify the data with .15 base rate:
 ```{r}
 hab15 <- ClassifyCases(hab, p = 0.15)
@@ -140,8 +206,19 @@ Check the data:
 CheckData(hab15)
 ```
 
+### P = 0.10
 
-# Hypnotic suggestibility data: separate items ("bad" items removed)
+Classify the data with .10 base rate:
+```{r}
+hab10 <- ClassifyCases(hab, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(hab10)
+```
+
+## Hypnotic suggestibility data: separate items ("bad" items removed)
 
 Create a H. suggestibility subset without "bad" items
 ```{r}
@@ -153,6 +230,8 @@ Headers for the resulting table:
 colnames(hab_purified)
 ```
 
+### P = 0.15
+
 Classify the data with .15 base rate:
 ```{r}
 hab_pur15 <- ClassifyCases(hab_purified, p = 0.15)
@@ -163,7 +242,19 @@ Check the data:
 CheckData(hab_pur15)
 ```
 
-# Hypnotic suggestibility data: subscales
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+hab_pur10 <- ClassifyCases(hab_purified, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(hab_pur10)
+```
+
+## Hypnotic suggestibility data: subscales
 
 Create subscales
 ```{r}
@@ -179,6 +270,8 @@ select(hab, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
+### P = 0.15
+
 Classify the data with .15 base rate:
 ```{r}
 hab_subsc15 <- select(hab, ideomotor, challenge, cogper, amnesia)
@@ -190,7 +283,20 @@ Check the data:
 CheckData(hab_subsc15)
 ```
 
-# Hypnotic suggestibility data: subscales ("bad" items removed)
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+hab_subsc10 <- select(hab, ideomotor, challenge, cogper, amnesia)
+hab_subsc10 <- ClassifyCases(hab_subsc10, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(hab_subsc10)
+```
+
+## Hypnotic suggestibility data: subscales ("bad" items removed)
 
 Create subscales
 ```{r}
@@ -205,6 +311,9 @@ select(hab, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
+### P = 0.15
+
+Classify the data with .15 base rate:
 ```{r}
 hab_subsc_pur15 <- select(hab, ideomotor, challenge, cogper)
 hab_subsc_pur15 <- ClassifyCases(hab_subsc_pur15, p = 0.15)
@@ -213,4 +322,156 @@ hab_subsc_pur15 <- ClassifyCases(hab_subsc_pur15, p = 0.15)
 Check the data:
 ```{r error = TRUE}
 CheckData(hab_subsc_pur15)
+```
+
+### P = 0.10
+
+Classify the data with .10 base rate:
+```{r}
+hab_subsc_pur10 <- select(hab, ideomotor, challenge, cogper)
+hab_subsc_pur10 <- ClassifyCases(hab_subsc_pur10, p = 0.10)
+```
+
+Check the data:
+```{r error = TRUE}
+CheckData(hab_subsc_pur10)
+```
+
+# Performing the analysis
+
+## Involuntariness data: separate items
+
+### P = 0.15
+
+![Low mean!](warning.png){width=2%} Mean d = 1.09
+
+```{r error = TRUE}
+RunTaxometrics(invol15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(invol10)
+```
+
+## Involuntariness data: separate items ("bad" items removed)
+
+### P = 0.15
+
+![Low mean!](warning.png){width=2%} Mean d = 1.18
+
+```{r error = TRUE}
+RunTaxometrics(invol_pur15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(invol_pur10)
+```
+
+## Involuntariness data: subscales
+
+### P = 0.15
+
+```{r error = TRUE}
+RunTaxometrics(invol_subscales15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(invol_subscales10)
+```
+
+## Involuntariness data: subscales ("bad" items removed)
+
+### P = 0.15
+
+```{r error = TRUE}
+RunTaxometrics(invol_subscales_pur15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(invol_subscales_pur10)
+```
+
+
+## Hypnotic suggestibility data: separate items
+
+### P = 0.15
+
+![Low mean!](warning.png){width=2%} Mean d = 0.90
+
+```{r error = TRUE}
+RunTaxometrics(hab15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(hab10)
+```
+
+## Hypnotic suggestibility data: separate items ("bad" items removed)
+
+### P = 0.15
+
+![Low mean!](warning.png){width=2%} Mean d = 1.03
+
+```{r error = TRUE}
+RunTaxometrics(hab15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(hab10)
+```
+
+## Hypnotic suggestibility data: subscales
+
+### P = 0.15
+
+```{r error = TRUE}
+RunTaxometrics(hab_subsc15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(hab_subsc10)
+```
+
+## Hypnotic suggestibility data: subscales ("bad" items removed)
+
+### P = 0.15
+
+```{r error = TRUE}
+RunTaxometrics(hab_subsc_pur15)
+```
+
+### P = 0.10
+
+Mean d = ???
+
+```{r error = TRUE}
+RunTaxometrics(hab_subsc_pur10)
 ```

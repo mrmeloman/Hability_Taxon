@@ -111,34 +111,34 @@ hab_subsc_pur10 <- ClassifyCases(hab_subsc_pur10, p = 0.10)
 
 ### P = 0.15
 
-RunTaxometrics(invol15)
+RunTaxometrics(invol15) # Я дома
 
-RunTaxometrics(invol10)
+RunTaxometrics(invol10) # Я дома
 
-RunTaxometrics(invol_pur15)
+RunTaxometrics(invol_pur15) #Драгон
 
-RunTaxometrics(invol_pur10)
+RunTaxometrics(invol_pur10) #Драгон
 
-RunTaxometrics(invol_subscales15)
+RunTaxometrics(invol_subscales15) # Я ноут
 
-RunTaxometrics(invol_subscales10)
+RunTaxometrics(invol_subscales10) # Я ноут
 
-RunTaxometrics(invol_subscales_pur15)
+RunTaxometrics(invol_subscales_pur15) # Шляпа
 
-RunTaxometrics(invol_subscales_pur10)
+RunTaxometrics(invol_subscales_pur10) # Я дома
 
-RunTaxometrics(hab15)
+RunTaxometrics(hab15) #Шляпа
 
-RunTaxometrics(hab10)
+RunTaxometrics(hab10) #Драгон
 
-RunTaxometrics(hab_pur15)
+RunTaxometrics(hab_pur15) # Вика
 
-RunTaxometrics(hab_pur10)
+RunTaxometrics(hab_pur10) # Вика
 
-RunTaxometrics(hab_subsc15)
+RunTaxometrics(hab_subsc15) # Я ноут
 
-RunTaxometrics(hab_subsc10)
+RunTaxometrics(hab_subsc10) # Я дома
 
-RunTaxometrics(hab_subsc_pur15)
+RunTaxometrics(hab_subsc_pur15) # Я дома
 
-RunTaxometrics(hab_subsc_pur10)
+RunTaxometrics(hab_subsc_pur10) # Я дома

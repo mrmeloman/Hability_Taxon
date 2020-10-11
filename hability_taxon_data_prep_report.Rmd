@@ -345,68 +345,597 @@ CheckData(hab_subsc_pur10)
 
 ![Low mean!](warning.png){width=2%} Mean d = 1.09
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  12 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.152 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  132 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  660 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.501 
+  MAXEIG:  0.407 
+  L-Mode:  0.466 
+  mean:  0.458 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.432 
+  MAXEIG:  0.876 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.914 
+    mean:  0.457 
+  mean:  0.589 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+        
+![invol15](invol15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol10)
 ```
 
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  12 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.094 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  132 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  660 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.47 
+  MAXEIG:  0.418 
+  L-Mode:  0.489 
+  mean:  0.459 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.375 
+  MAXEIG:  0.877 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.914 
+    mean:  0.457 
+  mean:  0.57 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol10](invol10.png)
 ## Involuntariness data: separate items ("bad" items removed)
 
 ### P = 0.15
 
 ![Low mean!](warning.png){width=2%} Mean d = 1.18
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_pur15)
 ```
+
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  8 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.163 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  56 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  168 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.493 
+  MAXEIG:  0.418 
+  L-Mode:  0.463 
+  mean:  0.458 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.668 
+  MAXEIG:  0.806 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.819 
+    mean:  0.409 
+  mean:  0.628 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_pur15](invol_pur15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_pur10)
 ```
+
+> RunTaxometrics(invol_pur10)
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  8 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.087 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  56 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  168 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.461 
+  MAXEIG:  0.427 
+  L-Mode:  0.48 
+  mean:  0.456 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.659 
+  MAXEIG:  0.604 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.819 
+    mean:  0.409 
+  mean:  0.558 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_pur10](invol_pur10.png)
 
 ## Involuntariness data: subscales
 
 ### P = 0.15
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_subscales15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.152 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.405 
+  MAXEIG:  0.249 
+  L-Mode:  0.511 
+  mean:  0.388 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.766 
+  MAXEIG:  0.637 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.969 
+    mean:  0.485 
+  mean:  0.629 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_subscales15](invol_subscales15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_subscales10)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.094 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.409 
+  MAXEIG:  0.281 
+  L-Mode:  0.531 
+  mean:  0.407 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.737 
+  MAXEIG:  0.732 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.969 
+    mean:  0.485 
+  mean:  0.651 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_subscales10](invol_subscales10.png)
 
 ## Involuntariness data: subscales ("bad" items removed)
 
 ### P = 0.15
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_subscales_pur15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  3 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.163 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  6 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  3 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.447 
+  MAXEIG:  0.419 
+  L-Mode:  0.411 
+  mean:  0.425 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.759 
+  MAXEIG:  0.686 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.814 
+    mean:  0.407 
+  mean:  0.617 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_subscales_pur15](invol_subscales_pur15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(invol_subscales_pur10)
 ```
 
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  3 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.087 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  6 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  3 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.441 
+  MAXEIG:  0.398 
+  L-Mode:  0.469 
+  mean:  0.436 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.754 
+  MAXEIG:  0.436 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.814 
+    mean:  0.407 
+  mean:  0.532 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![invol_subscales_pur10](invol_subscales_pur10.png)
 
 ## Hypnotic suggestibility data: separate items
 
@@ -414,17 +943,149 @@ RunTaxometrics(invol_subscales_pur10)
 
 ![Low mean!](warning.png){width=2%} Mean d = 0.90
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  12 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.149 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  132 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  660 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.451 
+  MAXEIG:  0.269 
+  L-Mode:  0.38 
+  mean:  0.367 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.357 
+  MAXEIG:  0.144 
+  L-Mode:
+    based on location of left mode:  0.426 
+    based on location of right mode:  0.675 
+    mean:  0.55 
+  mean:  0.35 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![hab15](hab15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab10)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+   tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size  584 
+  number of variables  12 
+  comparison data population size  1e+05 
+  comparison data samples  100 
+  comparison data taxon base rate  0.063 
+  replications  10 
+
+Summary of MAMBAC analytic specifications
+  cuts  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators  all possible input-output pairs 
+  number of curves  132 
+
+Summary of MAXEIG analytic specifications
+  subsamples  50 windows that overlap 0.9 
+  indicators  all possible input-output-output triplets 
+  number of curves  660 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode  -0.001 
+  position beyond which to search for right mode  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC  0.262 
+  MAXEIG  0.329 
+  L-Mode  0.441 
+  mean  0.344 
+
+  Note CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates
+  MAMBAC  0.254 
+  MAXEIG  0.885 
+  L-Mode
+    based on location of left mode  0.426 
+    based on location of right mode  0.675 
+    mean  0.55 
+  mean  0.563 
+
+  Note There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![hab10](hab10.png)
 
 ## Hypnotic suggestibility data: separate items ("bad" items removed)
 
@@ -432,46 +1093,445 @@ RunTaxometrics(hab10)
 
 ![Low mean!](warning.png){width=2%} Mean d = 1.03
 
-```{r error = TRUE}
-RunTaxometrics(hab15)
+```{r eval = FALSE}
+RunTaxometrics(hab_pur15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  8 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.139 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  56 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  168 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.158 
+  MAXEIG:  0.341 
+  L-Mode:  0.326 
+  mean:  0.275 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.562 
+  MAXEIG:  0.862 
+  L-Mode:
+    based on location of left mode:  0.556 
+    based on location of right mode:  0.579 
+    mean:  0.568 
+  mean:  0.664 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+Error in plot.new() : figure margins too large
+
+![hab_pur15](hab_pur15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
-RunTaxometrics(hab10)
+```{r eval = FALSE}
+RunTaxometrics(hab_pur10)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  8 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.139 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  56 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  168 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.158 
+  MAXEIG:  0.341 
+  L-Mode:  0.326 
+  mean:  0.275 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.562 
+  MAXEIG:  0.862 
+  L-Mode:
+    based on location of left mode:  0.556 
+    based on location of right mode:  0.579 
+    mean:  0.568 
+  mean:  0.664 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![hab_pur10](hab_pur10.png)
 
 ## Hypnotic suggestibility data: subscales
 
 ### P = 0.15
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab_subsc15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.149 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.378 
+  MAXEIG:  0.341 
+  L-Mode:  0.44 
+  mean:  0.386 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.694 
+  MAXEIG:  0.58 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.956 
+    mean:  0.478 
+  mean:  0.584 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![hab_subsc15](hab_subsc15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab_subsc10)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.063 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.368 
+  MAXEIG:  0.296 
+  L-Mode:  0.525 
+  mean:  0.396 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.712 
+  MAXEIG:  0.761 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.956 
+    mean:  0.478 
+  mean:  0.65 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+
+![hab_subsc10](hab_subsc10.png)
 
 ## Hypnotic suggestibility data: subscales ("bad" items removed)
 
 ### P = 0.15
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab_subsc_pur15)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  3 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.127 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  6 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  3 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.302 
+  MAXEIG:  0.527 
+  L-Mode:  0.418 
+  mean:  0.416 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.521 
+  MAXEIG:  0.233 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.856 
+    mean:  0.428 
+  mean:  0.394 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+
+![hab_subsc_pur15](hab_subsc_pur15.png)
 
 ### P = 0.10
 
 Mean d = ???
 
-```{r error = TRUE}
+```{r eval = FALSE}
 RunTaxometrics(hab_subsc_pur10)
 ```
+
+STATUS OF PROGRAM EXECUTION
+
+Checking for missing data
+Checking classification variable
+Checking for variance
+Checking program parameters
+  * tied scores, reps set to 10
+Generating population of dimensional comparison data
+Generating population of categorical comparison data
+  Generating taxon
+  Generating complement
+Analyzing empirical data
+Analyzing samples of dimensional comparison data
+Analyzing samples of categorical comparison data
+
+  Note: Users should run the CheckData() function to evaluate whether 
+        data appear to be adequate for taxometric analysis.
+
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  3 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.127 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  6 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  3 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Comparison Curve Fit Index (CCFI)
+  MAMBAC:  0.302 
+  MAXEIG:  0.527 
+  L-Mode:  0.418 
+  mean:  0.416 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result.
+
+Base Rate Estimates:
+  MAMBAC:  0.521 
+  MAXEIG:  0.233 
+  L-Mode:
+    based on location of left mode:  0 
+    based on location of right mode:  0.856 
+    mean:  0.428 
+  mean:  0.394 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+
+![hab_subsc_pur10](hab_subsc_pur10.png)

@@ -349,6 +349,7 @@ CheckData(hab_subsc_pur10)
 RunTaxometrics(invol15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -412,7 +413,8 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
-        
+```     
+
 ![invol15](invol15.png)
 
 ### P = 0.10
@@ -423,6 +425,7 @@ Mean d = ???
 RunTaxometrics(invol10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -486,8 +489,10 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol10](invol10.png)
+
 ## Involuntariness data: separate items ("bad" items removed)
 
 ### P = 0.15
@@ -498,7 +503,7 @@ Base Rate Estimates:
 RunTaxometrics(invol_pur15)
 ```
 
-
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -562,6 +567,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_pur15](invol_pur15.png)
 
@@ -573,8 +579,7 @@ Mean d = ???
 RunTaxometrics(invol_pur10)
 ```
 
-> RunTaxometrics(invol_pur10)
-
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -638,6 +643,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_pur10](invol_pur10.png)
 
@@ -649,6 +655,7 @@ Base Rate Estimates:
 RunTaxometrics(invol_subscales15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -712,6 +719,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_subscales15](invol_subscales15.png)
 
@@ -723,6 +731,7 @@ Mean d = ???
 RunTaxometrics(invol_subscales10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -786,6 +795,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_subscales10](invol_subscales10.png)
 
@@ -797,6 +807,7 @@ Base Rate Estimates:
 RunTaxometrics(invol_subscales_pur15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -860,6 +871,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_subscales_pur15](invol_subscales_pur15.png)
 
@@ -871,6 +883,7 @@ Mean d = ???
 RunTaxometrics(invol_subscales_pur10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -934,6 +947,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![invol_subscales_pur10](invol_subscales_pur10.png)
 
@@ -947,6 +961,7 @@ Base Rate Estimates:
 RunTaxometrics(hab15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1010,6 +1025,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![hab15](hab15.png)
 
@@ -1021,6 +1037,7 @@ Mean d = ???
 RunTaxometrics(hab10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1084,6 +1101,7 @@ Base Rate Estimates
   Note There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![hab10](hab10.png)
 
@@ -1097,6 +1115,7 @@ Base Rate Estimates
 RunTaxometrics(hab_pur15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1160,7 +1179,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
-Error in plot.new() : figure margins too large
+```
 
 ![hab_pur15](hab_pur15.png)
 
@@ -1172,6 +1191,7 @@ Mean d = ???
 RunTaxometrics(hab_pur10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1235,6 +1255,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![hab_pur10](hab_pur10.png)
 
@@ -1246,6 +1267,7 @@ Base Rate Estimates:
 RunTaxometrics(hab_subsc15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1309,6 +1331,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![hab_subsc15](hab_subsc15.png)
 
@@ -1320,6 +1343,7 @@ Mean d = ???
 RunTaxometrics(hab_subsc10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1383,7 +1407,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
-
+```
 
 ![hab_subsc10](hab_subsc10.png)
 
@@ -1395,6 +1419,7 @@ Base Rate Estimates:
 RunTaxometrics(hab_subsc_pur15)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1458,7 +1483,7 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
-
+```
 
 ![hab_subsc_pur15](hab_subsc_pur15.png)
 
@@ -1470,6 +1495,7 @@ Mean d = ???
 RunTaxometrics(hab_subsc_pur10)
 ```
 
+```
 STATUS OF PROGRAM EXECUTION
 
 Checking for missing data
@@ -1533,5 +1559,6 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+```
 
 ![hab_subsc_pur10](hab_subsc_pur10.png)

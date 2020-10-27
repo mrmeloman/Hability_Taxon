@@ -111,34 +111,57 @@ hab_subsc_pur10 <- ClassifyCases(hab_subsc_pur10, p = 0.10)
 
 ### P = 0.15
 
+cat("invol15")
 RunTaxometrics(invol15) # Я дома
 
+cat("invol10")
 RunTaxometrics(invol10) # Я дома
 
+cat("invol_pur15")
 RunTaxometrics(invol_pur15) #Драгон
 
+cat("invol_pur10")
 RunTaxometrics(invol_pur10) #Драгон
 
+cat("invol_subscales15")
 RunTaxometrics(invol_subscales15) # Я ноут
 
+cat("invol_subscales10")
 RunTaxometrics(invol_subscales10) # Я ноут
 
+cat("invol_subscales_pur15")
 RunTaxometrics(invol_subscales_pur15) # Шляпа
 
+cat("invol_subscales_pur10")
 RunTaxometrics(invol_subscales_pur10) # Я дома
 
+cat("hab15")
 RunTaxometrics(hab15) #Шляпа
 
+cat("hab10")
 RunTaxometrics(hab10) #Драгон
 
+cat("hab_pur15")
 RunTaxometrics(hab_pur15) # Вика
 
+cat("hab_pur10")
 RunTaxometrics(hab_pur10) # Вика
 
+cat("hab_subsc15")
 RunTaxometrics(hab_subsc15) # Я ноут
 
+cat("hab_subsc10")
 RunTaxometrics(hab_subsc10) # Я дома
 
+cat("hab_subsc_pur15")
 RunTaxometrics(hab_subsc_pur15) # Я дома
 
+cat("hab_subsc_pur10")
 RunTaxometrics(hab_subsc_pur10) # Я дома
+
+#CCFI Profile for selected models:
+
+RunCCFIProfile(select(invol, ideomotor, challenge, cogper, amnesia))
+
+RunCCFIProfile(select(hab, ideomotor, challenge, cogper, amnesia))
+

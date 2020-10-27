@@ -1,5 +1,5 @@
 ---
-title: "Data check report 2.0"
+title: "Data check report 3.0"
 output: pdf_document
 ---
 
@@ -21,14 +21,14 @@ Get rid of N/A
 ```{r}
 data <- na.omit(data)
 ```
+
 We've lost 18 participants
 
-# Checking the data
+# I. Checking the data
 
-## Involuntariness data: separate items
+## 1. Involuntariness data: separate items
 
-Create a subset with involuntariness ratings:
-
+Create a subset with involuntariness ratings
 ```{r}
 invol <- select(data, INV.1:INV.12)
 ```
@@ -38,66 +38,67 @@ Headers for the resulting table:
 colnames(invol)
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
-Classify the data with .15 base rate:
+Classify the data with .15 base rate
 ```{r}
 invol15 <- ClassifyCases(invol, p = 0.15)
 ```
 
-Check the data:
+Check the data
 ```{r error = TRUE}
 CheckData(invol15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
-Classify the data with .10 base rate:
+Classify the data with .10 base rate
 ```{r}
 invol10 <- ClassifyCases(invol, p = 0.10)
 ```
 
-Check the data:
+Check the data
 ```{r error = TRUE}
 CheckData(invol10)
 ```
 
-## Involuntariness data: separate items ("bad" items removed)
+## 2. Involuntariness data: separate items ("bad" items removed)
 
-Create a subset with involuntariness ratings without "bad" items:
+Create a subset with involuntariness ratings without "bad" items
 ```{r}
 invol_purified <- select(data, INV.3:INV.10)
 ```
+
 Headers for the resulting table:
 ```{r echo=FALSE}
 colnames(invol_purified)
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
-Classify the data with .15 base rate:
+Classify the data with .15 base rate
 ```{r}
 invol_pur15 <- ClassifyCases(invol_purified, p = 0.15)
 ```
 
-Check the data:
+Check the data
 ```{r error = TRUE}
 CheckData(invol_pur15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
-Classify the data with .10 base rate:
+Classify the data with .10 base rate
 ```{r}
 invol_pur10 <- ClassifyCases(invol_purified, p = 0.10)
 ```
 
-Check the data:
+Check the data
 ```{r error = TRUE}
 CheckData(invol_pur10)
 ```
 
-## Involuntariness data: subscales
+## 3. Involuntariness data: subscales
 
 Create subscales
 ```{r}
@@ -113,7 +114,7 @@ select(invol, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -126,7 +127,7 @@ Check the data:
 CheckData(invol_subscales15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -140,7 +141,7 @@ CheckData(invol_subscales10)
 ```
 
 
-## Involuntariness data: subscales ("bad" items removed)
+## 4. Involuntariness data: subscales ("bad" items removed)
 
 Create subscales
 ```{r}
@@ -155,7 +156,7 @@ select(invol_purified, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -168,7 +169,7 @@ Check the data:
 CheckData(invol_subscales_pur15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -182,7 +183,7 @@ CheckData(invol_subscales_pur10)
 ```
 
 
-## Hypnotic suggestibility data: separate items
+## 5. Hypnotic suggestibility data: separate items
 
 Create a H. suggestibility subset
 ```{r}
@@ -194,7 +195,7 @@ Headers for the resulting table:
 colnames(hab)
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -206,7 +207,7 @@ Check the data:
 CheckData(hab15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -218,7 +219,7 @@ Check the data:
 CheckData(hab10)
 ```
 
-## Hypnotic suggestibility data: separate items ("bad" items removed)
+## 6. Hypnotic suggestibility data: separate items ("bad" items removed)
 
 Create a H. suggestibility subset without "bad" items
 ```{r}
@@ -230,7 +231,7 @@ Headers for the resulting table:
 colnames(hab_purified)
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -242,7 +243,7 @@ Check the data:
 CheckData(hab_pur15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -254,7 +255,7 @@ Check the data:
 CheckData(hab_pur10)
 ```
 
-## Hypnotic suggestibility data: subscales
+## 7. Hypnotic suggestibility data: subscales
 
 Create subscales
 ```{r}
@@ -270,7 +271,7 @@ select(hab, ideomotor, challenge, cogper, amnesia) %>%
   colnames()
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -283,7 +284,7 @@ Check the data:
 CheckData(hab_subsc15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -296,7 +297,7 @@ Check the data:
 CheckData(hab_subsc10)
 ```
 
-## Hypnotic suggestibility data: subscales ("bad" items removed)
+## 8. Hypnotic suggestibility data: subscales ("bad" items removed)
 
 Create subscales
 ```{r}
@@ -311,7 +312,7 @@ select(hab, ideomotor, challenge, cogper) %>%
   colnames()
 ```
 
-### P = 0.15
+### a.) P = 0.15
 
 Classify the data with .15 base rate:
 ```{r}
@@ -324,7 +325,7 @@ Check the data:
 CheckData(hab_subsc_pur15)
 ```
 
-### P = 0.10
+### b.) P = 0.10
 
 Classify the data with .10 base rate:
 ```{r}
@@ -336,38 +337,19 @@ Check the data:
 ```{r error = TRUE}
 CheckData(hab_subsc_pur10)
 ```
+\newpage
 
-# Performing the analysis
+# II. Performing the analysis
 
-## Involuntariness data: separate items
+## 1. Involuntariness data: separate items
 
-### P = 0.15
-
-![Low mean!](warning.png){width=2%} Mean d = 1.09
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(invol15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -413,37 +395,19 @@ Base Rate Estimates:
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
+> 
 ```     
 
 ![invol15](invol15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(invol10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -492,36 +456,17 @@ Base Rate Estimates:
 ```
 
 ![invol10](invol10.png)
+\newpage
 
-## Involuntariness data: separate items ("bad" items removed)
+## 2. Involuntariness data: separate items ("bad" items removed)
 
-### P = 0.15
-
-![Low mean!](warning.png){width=2%} Mean d = 1.18
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_pur15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -570,34 +515,15 @@ Base Rate Estimates:
 ```
 
 ![invol_pur15](invol_pur15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_pur10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -646,34 +572,17 @@ Base Rate Estimates:
 ```
 
 ![invol_pur10](invol_pur10.png)
+\newpage
 
-## Involuntariness data: subscales
+## 3. Involuntariness data: subscales
 
-### P = 0.15
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_subscales15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -699,22 +608,22 @@ Summary of L-Mode analytic specifications
   position beyond which to search for right mode:  0.001 
 
 Comparison Curve Fit Index (CCFI)
-  MAMBAC:  0.405 
-  MAXEIG:  0.249 
-  L-Mode:  0.511 
-  mean:  0.388 
+  MAMBAC:  0.425 
+  MAXEIG:  0.263 
+  L-Mode:  0.51 
+  mean:  0.399 
 
   Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
         The further a CCFI is from .50, the stronger the result.
 
 Base Rate Estimates:
-  MAMBAC:  0.766 
-  MAXEIG:  0.637 
+  MAMBAC:  0.727 
+  MAXEIG:  0.82 
   L-Mode:
     based on location of left mode:  0 
     based on location of right mode:  0.969 
     mean:  0.485 
-  mean:  0.629 
+  mean:  0.677 
 
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
@@ -722,34 +631,15 @@ Base Rate Estimates:
 ```
 
 ![invol_subscales15](invol_subscales15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_subscales10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -775,22 +665,22 @@ Summary of L-Mode analytic specifications
   position beyond which to search for right mode:  0.001 
 
 Comparison Curve Fit Index (CCFI)
-  MAMBAC:  0.409 
-  MAXEIG:  0.281 
-  L-Mode:  0.531 
-  mean:  0.407 
+  MAMBAC:  0.406 
+  MAXEIG:  0.287 
+  L-Mode:  0.535 
+  mean:  0.409 
 
   Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
         The further a CCFI is from .50, the stronger the result.
 
 Base Rate Estimates:
-  MAMBAC:  0.737 
-  MAXEIG:  0.732 
+  MAMBAC:  0.719 
+  MAXEIG:  0.647 
   L-Mode:
     based on location of left mode:  0 
     based on location of right mode:  0.969 
     mean:  0.485 
-  mean:  0.651 
+  mean:  0.617 
 
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
@@ -798,34 +688,17 @@ Base Rate Estimates:
 ```
 
 ![invol_subscales10](invol_subscales10.png)
+\newpage
 
-## Involuntariness data: subscales ("bad" items removed)
+## 4. Involuntariness data: subscales ("bad" items removed)
 
-### P = 0.15
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_subscales_pur15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -874,34 +747,15 @@ Base Rate Estimates:
 ```
 
 ![invol_subscales_pur15](invol_subscales_pur15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(invol_subscales_pur10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -950,36 +804,17 @@ Base Rate Estimates:
 ```
 
 ![invol_subscales_pur10](invol_subscales_pur10.png)
+\newpage
 
-## Hypnotic suggestibility data: separate items
+## 5. Hypnotic suggestibility data: separate items
 
-### P = 0.15
-
-![Low mean!](warning.png){width=2%} Mean d = 0.90
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(hab15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1028,112 +863,74 @@ Base Rate Estimates:
 ```
 
 ![hab15](hab15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(hab10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-   tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
-  sample size  584 
-  number of variables  12 
-  comparison data population size  1e+05 
-  comparison data samples  100 
-  comparison data taxon base rate  0.063 
-  replications  10 
+  sample size:  584 
+  number of variables:  12 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  comparison data taxon base rate:  0.063 
+  replications:  10 
 
 Summary of MAMBAC analytic specifications
-  cuts  50 evenly-spaced cuts beginning 25 cases from either extreme
-  indicators  all possible input-output pairs 
-  number of curves  132 
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  132 
 
 Summary of MAXEIG analytic specifications
-  subsamples  50 windows that overlap 0.9 
-  indicators  all possible input-output-output triplets 
-  number of curves  660 
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  660 
 
 Summary of L-Mode analytic specifications
-  position beyond which to search for left mode  -0.001 
-  position beyond which to search for right mode  0.001 
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
 
 Comparison Curve Fit Index (CCFI)
-  MAMBAC  0.262 
-  MAXEIG  0.329 
-  L-Mode  0.441 
-  mean  0.344 
+  MAMBAC:  0.262 
+  MAXEIG:  0.329 
+  L-Mode:  0.441 
+  mean:  0.344 
 
-  Note CCFI values can range from 0 (dimensional) to 1 (categorical). 
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
         The further a CCFI is from .50, the stronger the result.
 
-Base Rate Estimates
-  MAMBAC  0.254 
-  MAXEIG  0.885 
-  L-Mode
-    based on location of left mode  0.426 
-    based on location of right mode  0.675 
-    mean  0.55 
-  mean  0.563 
+Base Rate Estimates:
+  MAMBAC:  0.254 
+  MAXEIG:  0.885 
+  L-Mode:
+    based on location of left mode:  0.426 
+    based on location of right mode:  0.675 
+    mean:  0.55 
+  mean:  0.563 
 
-  Note There is no evidence-based way to use base rate estimates to 
+  Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
         only be used if evidence supports categorical structure.
 ```
 
 ![hab10](hab10.png)
+\newpage
 
-## Hypnotic suggestibility data: separate items ("bad" items removed)
+## 6. Hypnotic suggestibility data: separate items ("bad" items removed)
 
-### P = 0.15
-
-![Low mean!](warning.png){width=2%} Mean d = 1.03
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_pur15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1182,34 +979,15 @@ Base Rate Estimates:
 ```
 
 ![hab_pur15](hab_pur15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_pur10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1258,34 +1036,17 @@ Base Rate Estimates:
 ```
 
 ![hab_pur10](hab_pur10.png)
+\newpage
 
-## Hypnotic suggestibility data: subscales
+## 7. Hypnotic suggestibility data: subscales
 
-### P = 0.15
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_subsc15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1311,22 +1072,22 @@ Summary of L-Mode analytic specifications
   position beyond which to search for right mode:  0.001 
 
 Comparison Curve Fit Index (CCFI)
-  MAMBAC:  0.378 
-  MAXEIG:  0.341 
-  L-Mode:  0.44 
-  mean:  0.386 
+  MAMBAC:  0.36 
+  MAXEIG:  0.403 
+  L-Mode:  0.434 
+  mean:  0.399 
 
   Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
         The further a CCFI is from .50, the stronger the result.
 
 Base Rate Estimates:
-  MAMBAC:  0.694 
-  MAXEIG:  0.58 
+  MAMBAC:  0.716 
+  MAXEIG:  0.346 
   L-Mode:
     based on location of left mode:  0 
     based on location of right mode:  0.956 
     mean:  0.478 
-  mean:  0.584 
+  mean:  0.513 
 
   Note: There is no evidence-based way to use base rate estimates to 
         differentiate categorical and dimensional data. They should 
@@ -1334,34 +1095,15 @@ Base Rate Estimates:
 ```
 
 ![hab_subsc15](hab_subsc15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_subsc10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1410,34 +1152,17 @@ Base Rate Estimates:
 ```
 
 ![hab_subsc10](hab_subsc10.png)
+\newpage
 
-## Hypnotic suggestibility data: subscales ("bad" items removed)
+## 8. Hypnotic suggestibility data: subscales ("bad" items removed)
 
-### P = 0.15
+### a.) P = 0.15
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_subsc_pur15)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1486,34 +1211,15 @@ Base Rate Estimates:
 ```
 
 ![hab_subsc_pur15](hab_subsc_pur15.png)
+\newpage
 
-### P = 0.10
-
-Mean d = ???
+### b.) P = 0.10
 
 ```{r eval = FALSE}
 RunTaxometrics(hab_subsc_pur10)
 ```
 
 ```
-STATUS OF PROGRAM EXECUTION
-
-Checking for missing data
-Checking classification variable
-Checking for variance
-Checking program parameters
-  * tied scores, reps set to 10
-Generating population of dimensional comparison data
-Generating population of categorical comparison data
-  Generating taxon
-  Generating complement
-Analyzing empirical data
-Analyzing samples of dimensional comparison data
-Analyzing samples of categorical comparison data
-
-  Note: Users should run the CheckData() function to evaluate whether 
-        data appear to be adequate for taxometric analysis.
-
 TAXOMETRIC ANALYSIS RESULTS
 
 Summary of shared analytic specifications
@@ -1562,3 +1268,102 @@ Base Rate Estimates:
 ```
 
 ![hab_subsc_pur10](hab_subsc_pur10.png)
+\newpage
+
+# III. Running CCFI Profile
+
+## 1. Involuntariness subscales model
+
+```
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Aggregate Comparison Curve Fit Index (CCFI)
+  mean profile:  0.47 
+  MAMBAC profile:  0.59 
+  MAXEIG profile:  0.284 
+  L-Mode profile:  0.546 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result. 
+        Aggregate CCFI values are a weighted mean of all CCFI values 
+        in the profile.
+
+Base Rate Estimates
+  mean profile:  0.916 
+  MAMBAC profile:  0.905 
+  MAXEIG profile:  0.025 
+  L-Mode profile:  0.855 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+```
+
+## 2. Suggestibility subscales model
+
+```
+TAXOMETRIC ANALYSIS RESULTS
+
+Summary of shared analytic specifications
+  sample size:  584 
+  number of variables:  4 
+  comparison data population size:  1e+05 
+  comparison data samples:  100 
+  replications:  10 
+
+Summary of MAMBAC analytic specifications
+  cuts:  50 evenly-spaced cuts beginning 25 cases from either extreme
+  indicators:  all possible input-output pairs 
+  number of curves:  12 
+
+Summary of MAXEIG analytic specifications
+  subsamples:  50 windows that overlap 0.9 
+  indicators:  all possible input-output-output triplets 
+  number of curves:  12 
+
+Summary of L-Mode analytic specifications
+  position beyond which to search for left mode:  -0.001 
+  position beyond which to search for right mode:  0.001 
+
+Aggregate Comparison Curve Fit Index (CCFI)
+  mean profile:  0.327 
+  MAMBAC profile:  0.392 
+  MAXEIG profile:  0.325 
+  L-Mode profile:  0.381 
+
+  Note: CCFI values can range from 0 (dimensional) to 1 (categorical). 
+        The further a CCFI is from .50, the stronger the result. 
+        Aggregate CCFI values are a weighted mean of all CCFI values 
+        in the profile.
+
+Base Rate Estimates
+  mean profile:  0.975 
+  MAMBAC profile:  0.081 
+  MAXEIG profile:  0.975 
+  L-Mode profile:  0.975 
+
+  Note: There is no evidence-based way to use base rate estimates to 
+        differentiate categorical and dimensional data. They should 
+        only be used if evidence supports categorical structure.
+```

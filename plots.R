@@ -1,4 +1,5 @@
 library("ggplot2")
+library(gridExtra)
 
 mambac.x <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
 mambac.y <- c(0.3299812,0.3133272,0.3234226,0.3163186,0.3067978,0.2954798,0.2967851,0.3052279,0.2972633,0.3037245,0.3043366,0.2939427,0.2945084,0.298302,0.2883989,0.2831783,0.280995,0.2816066,0.2774625,0.2780238,0.2696556,0.2654112,0.2638716,0.2653396,0.2657222,0.2637592,0.266065,0.2687736,0.2661318,0.2655892,0.2663093,0.2697764,0.2690438,0.2737014,0.2724385,0.2715759,0.264753,0.258835,0.2635221,0.2673901,0.2758804,0.2742202,0.2756782,0.2842586,0.2969466,0.305701,0.3168075,0.3520702,0.3899364,0.3785275)
@@ -1038,27 +1039,155 @@ lmode.y <-
     0.0002870924
   )
 
+
 mambac.y.range <- c(0.04054983,0.7368128)
 maxeig.y.range <- c(0.05763526,0.4677298)
 lmode.y.range <- c(3.09519e-05,0.4338556)
+
+#Double empirical values to allow the simulated polygon to be more smooth
+mambac.x <- rep(mambac.x, each = 2)
+mambac.y <- rep(mambac.y, each = 2)
 
 mamb <- data.frame(mambac.x, mambac.y)
 names(mamb)[names(mamb) == "mambac.x"] <- "xvalues"
 names(mamb)[names(mamb) == "mambac.y"] <- "yvalues"
 
-ggplot(mamb, aes(x = xvalues, y = yvalues)) +
-  geom_line(size = 1.2) +
+mambac.polygon.x1 <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
+mambac.polygon.x2 <- c(50,49,48,47,46,45,44,43,42,41,40,39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1)
+mambac.polygon.y1 <- c(0.2558687,0.2452373,0.2435819,0.2487913,0.2536897,0.2570638,0.2579049,0.2604552,0.2640958,0.2679862,0.2741284,0.2773146,0.2786061,0.2824909,0.2782892,0.2790425,0.2805476,0.2809539,0.2837941,0.2847134,0.288121,0.2922545,0.2931742,0.3023091,0.3096928,0.3146575,0.3240079,0.3316477,0.3393675,0.3484755,0.3543368,0.3673679,0.3797189,0.3890944,0.3947716,0.4001997,0.3965271,0.3940454,0.3939031,0.3952322,0.3978466,0.400012,0.407677,0.4192733,0.435485,0.443294,0.4563248,0.479304,0.501864,0.5027)
+mambac.polygon.y2 <- c(0.4041902,0.4096727,0.3893785,0.3705812,0.3604826,0.3482346,0.3388084,0.3338352,0.3330805,0.321016,0.3184516,0.3183296,0.3230425,0.3216281,0.3192083,0.3137967,0.3060498,0.2982222,0.2890493,0.2797817,0.2747621,0.2701764,0.259859,0.2563636,0.2498213,0.2448906,0.2377857,0.2321318,0.2280065,0.2271702,0.2221555,0.2194385,0.2176912,0.2170536,0.2205599,0.2193624,0.2165022,0.2101222,0.2082951,0.2057725,0.2014234,0.1951024,0.1883144,0.1801576,0.1804703,0.1785196,0.1739115,0.1760691,0.1666809,0.1750098)
+
+mambac.polygon.x <- c(mambac.polygon.x1, mambac.polygon.x2)
+mambac.polygon.y <- c(mambac.polygon.y1, mambac.polygon.y2)
+
+#X is the same as in data
+mambac.line1.y <- rep(c(0.04054983,0.04983274,0.04897911,0.05224541,0.05435267,0.05813023,0.07154062,0.07361751,0.08835677,0.09703274,0.1120558,0.1248879,0.1365185,0.143602,0.1519807,0.1516971,0.1474436,0.1418398,0.1457808,0.1474083,0.1475756,0.15431,0.1590441,0.1607065,0.1675476,0.1736797,0.1765744,0.185937,0.1911063,0.190623,0.1953102,0.1994009,0.2044302,0.2167131,0.220123,0.2274247,0.2307411,0.2353468,0.2340394,0.2312681,0.2336227,0.2435749,0.2524839,0.2566979,0.2628906,0.272648,0.2724901,0.2735181,0.2525096,0.2484922), each = 2)
+
+#X is the same as in data
+mambac.line2.y <- rep(c(0.3367835,0.32345,0.3202804,0.3398074,0.34976,0.3541584,0.3578863,0.3642948,0.3704688,0.379192,0.3885082,0.3951864,0.403645,0.4137778,0.4213957,0.4272905,0.4242773,0.4246962,0.4226849,0.4287463,0.4338341,0.4407285,0.4466811,0.4499939,0.4584973,0.4613496,0.470441,0.4811615,0.4963884,0.5091609,0.532205,0.5460778,0.571172,0.5972297,0.6213118,0.6312298,0.6312029,0.6297723,0.6197456,0.6138292,0.6109047,0.6103168,0.622904,0.6422062,0.6529549,0.6784213,0.7178567,0.7368128,0.7183989,0.7057578), each = 2)
+
+m1 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
   ylim(mambac.y.range) +
+  ggtitle(label = "Categorical comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
   theme(
+    plot.title = element_text(size=18, hjust = 0.5),
+    plot.subtitle = element_text(size=14, hjust = 0.5),
     axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black")
+    axis.line = element_line(colour = "black", size = 0.9)
   )
-  
-  
-  
-  
-  
+
+m2 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  ylim(mambac.y.range) +
+  ggtitle(label = "MAMBAC") +
+  xlab("Cut") + ylab("Mean Difference") +
+  theme(
+    plot.title = element_text(size=14, hjust = 0.5),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.line = element_line(colour = "black", size = 0.9)
+  )  
+
+m3 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  ylim(mambac.y.range) +
+  ggtitle(label = "MAMBAC") +
+  xlab("Cut") + ylab("Mean Difference") +
+  theme(
+    plot.title = element_text(size=14, hjust = 0.5),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.line = element_line(colour = "black", size = 0.9)
+  )
+
+m4 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  ylim(mambac.y.range) +
+  ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
+  xlab("Cut") + ylab("Mean Difference") +
+  theme(
+    plot.title = element_text(size=18, hjust = 0.5),
+    plot.subtitle = element_text(size=14, hjust = 0.5),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
+  )  
+
+m5 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  ylim(mambac.y.range) +
+  ggtitle(label = "MAMBAC") +
+  xlab("Cut") + ylab("Mean Difference") +
+  theme(
+    plot.title = element_text(size=14, hjust = 0.5),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
+  )    
+
+m6 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_line(size = 1.5) +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  ylim(mambac.y.range) +
+  ggtitle(label = "MAMBAC") +
+  xlab("Cut") + ylab("Mean Difference") +
+  theme(
+    plot.title = element_text(size=14, hjust = 0.5),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_blank(),
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
+  )    
+
+
+grid.arrange(m1, m4, m2, m5, m3, m6, nrow = 3)
+

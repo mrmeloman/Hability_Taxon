@@ -1069,8 +1069,8 @@ mambac.line2.y <- rep(c(0.3367835,0.32345,0.3202804,0.3398074,0.34976,0.3541584,
 m1 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#0b5db5") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#0b5db5") +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -1088,8 +1088,8 @@ m1 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
 m2 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#0b5db5") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#0b5db5") +
   ylim(mambac.y.range) +
   ggtitle(label = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -1106,8 +1106,8 @@ m2 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
 m3 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#0b5db5") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#0b5db5") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#0b5db5") +
   ylim(mambac.y.range) +
   ggtitle(label = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -1122,10 +1122,10 @@ m3 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   )
 
 m4 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#5aa007") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#5aa007") +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -1145,10 +1145,10 @@ m4 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   )  
 
 m5 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#5aa007") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#5aa007") +
   ylim(mambac.y.range) +
   ggtitle(label = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -1167,10 +1167,10 @@ m5 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
   )    
 
 m6 <- ggplot(mamb, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#f9d357") +
+  geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.x, y = mambac.polygon.y), fill = "#5aa007") +
   geom_line(size = 1.5) +
-  geom_line(aes(y = mambac.line1.y), size = 1.2, linetype = "twodash", color = "#808080") +
-  geom_line(aes(y = mambac.line2.y), size = 1.2, linetype = "twodash", color = "#808080") +
+  geom_line(aes(y = mambac.line1.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = mambac.line2.y), size = 1.2, color = "#5aa007") +
   ylim(mambac.y.range) +
   ggtitle(label = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +

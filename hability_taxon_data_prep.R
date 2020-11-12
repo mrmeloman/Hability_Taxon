@@ -1,6 +1,5 @@
 library("RTaxometrics")
 library("dplyr")
-library("ggplot2")
 
 data <- read.csv("oxford_hgshsa_260820_modded.csv", sep = ";")
 

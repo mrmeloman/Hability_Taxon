@@ -6033,10 +6033,10 @@ lmode.line2.dim.y <-
   )
 
 lmode.vline1.cat.x <- c(-0.01041169, -0.01041169)
-lmode.vline1.cat.y <- c(0, 0.4128646)
+lmode.vline1.cat.y <- c(0.0001, 0.4128646)
 
 lmode.vline2.cat.x <- c(0.177655, 0.177655)
-lmode.vline2.cat.y <- c(0, 0.4315346)
+lmode.vline2.cat.y <- c(0.0001, 0.4315346)
 
 lmo.emp <- data.frame(lmode.empcurve.x, lmode.empcurve.y)
 names(lmo.emp)[names(lmo.emp) == "lmode.empcurve.x"] <- "xvalues"
@@ -6051,13 +6051,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.cat.x,
                                         y = mambac.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = mambac.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
+  scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
+                                round(mambac.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=16, hjust = 0.5),
     plot.subtitle = element_text(size=12, hjust = 0.5),
@@ -6073,9 +6076,9 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.dim.x,
                                         y = mambac.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = mambac.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -6100,12 +6103,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.cat.x,
                                         y = maxeig.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = maxeig.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
+  scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
+                                round(maxeig.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -6120,9 +6126,9 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.dim.x,
                                         y = maxeig.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = maxeig.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
@@ -6130,21 +6136,36 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   ) 
 #L-Mode
 
 lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.cat.x, y = lmode.polygon.cat.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
+  scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
+                                round(lmode.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -6157,9 +6178,17 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
@@ -6167,13 +6196,18 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   )
 
 #Grid
+
 grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
              nrow = 3,
              top=textGrob("Involuntariness subscales; p = .15",
@@ -12211,10 +12245,10 @@ lmode.line2.dim.y <-
   )
 
 lmode.vline1.cat.x <- c(-0.01041169,-0.01041169)
-lmode.vline1.cat.y <- c(0,0.4128646)
+lmode.vline1.cat.y <- c(0.0001,0.4128646)
 
 lmode.vline2.cat.x <- c(0.177655,0.177655)
-lmode.vline2.cat.y <- c(0,0.4315346)
+lmode.vline2.cat.y <- c(0.0001,0.4315346)
 
 lmo.emp <- data.frame(lmode.empcurve.x, lmode.empcurve.y)
 names(lmo.emp)[names(lmo.emp) == "lmode.empcurve.x"] <- "xvalues"
@@ -12231,13 +12265,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.cat.x,
                                         y = mambac.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = mambac.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
+  scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
+                                round(mambac.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=16, hjust = 0.5),
     plot.subtitle = element_text(size=12, hjust = 0.5),
@@ -12253,9 +12290,9 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.dim.x,
                                         y = mambac.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = mambac.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -12280,12 +12317,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.cat.x,
                                         y = maxeig.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = maxeig.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
+  scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
+                                round(maxeig.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -12300,9 +12340,9 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.dim.x,
                                         y = maxeig.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = maxeig.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
@@ -12310,21 +12350,36 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   ) 
 #L-Mode
 
 lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.cat.x, y = lmode.polygon.cat.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
+  scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
+                                round(lmode.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -12337,9 +12392,17 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
@@ -12347,14 +12410,21 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   )
 
 #Grid
-grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim, nrow = 3, top=textGrob("Involuntariness subscales; p = .10"))
+grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
+             nrow = 3,
+             top=textGrob("Involuntariness subscales; p = .10",
+                          gp = gpar(fontsize = 14, fontface = 'bold')))
 
 
 
@@ -18401,10 +18471,10 @@ lmode.line2.dim.y <-
   )
 
 lmode.vline1.cat.x <- c(-0.01215921,-0.01215921)
-lmode.vline1.cat.y <- c(0,0.3563374)
+lmode.vline1.cat.y <- c(0.0001,0.3563374)
 
 lmode.vline2.cat.x <- c(0.2152464,0.2152464)
-lmode.vline2.cat.y <- c(0,0.3636451)
+lmode.vline2.cat.y <- c(0.0001,0.3636451)
 
 lmo.emp <- data.frame(lmode.empcurve.x, lmode.empcurve.y)
 names(lmo.emp)[names(lmo.emp) == "lmode.empcurve.x"] <- "xvalues"
@@ -18420,13 +18490,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.cat.x,
                                         y = mambac.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = mambac.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
+  scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
+                                round(mambac.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=16, hjust = 0.5),
     plot.subtitle = element_text(size=12, hjust = 0.5),
@@ -18442,9 +18515,9 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.dim.x,
                                         y = mambac.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = mambac.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -18469,12 +18542,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.cat.x,
                                         y = maxeig.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = maxeig.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
+  scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
+                                round(maxeig.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -18489,9 +18565,9 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.dim.x,
                                         y = maxeig.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = maxeig.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
@@ -18499,21 +18575,36 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   ) 
 #L-Mode
 
 lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.cat.x, y = lmode.polygon.cat.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
+  scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
+                                round(lmode.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -18526,9 +18617,17 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
@@ -18536,14 +18635,21 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   )
 
 #Grid
-grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim, nrow = 3, top=textGrob("HGSHS:A subscales; p = .15"))
+grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
+             nrow = 3,
+             top=textGrob("HGSHS:A subscales; p = .15",
+                          gp = gpar(fontsize = 14, fontface = 'bold')))
 
 
 # Suggestibility subscales; p = .15 --------------------------------------
@@ -24589,10 +24695,10 @@ lmode.line2.dim.y <-
   )
 
 lmode.vline1.cat.x <- c(-0.01215921,-0.01215921)
-lmode.vline1.cat.y <- c(0,0.3563374)
+lmode.vline1.cat.y <- c(0.0001,0.3563374)
 
 lmode.vline2.cat.x <- c(0.2152464,0.2152464)
-lmode.vline2.cat.y <- c(0,0.3636451)
+lmode.vline2.cat.y <- c(0.0001,0.3636451)
 
 lmo.emp <- data.frame(lmode.empcurve.x, lmode.empcurve.y)
 names(lmo.emp)[names(lmo.emp) == "lmode.empcurve.x"] <- "xvalues"
@@ -24609,13 +24715,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.cat.x,
                                         y = mambac.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = mambac.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
+  scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
+                                round(mambac.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=16, hjust = 0.5),
     plot.subtitle = element_text(size=12, hjust = 0.5),
@@ -24631,9 +24740,9 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = mambac.polygon.dim.x,
                                         y = mambac.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = mambac.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = mambac.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
   xlab("Cut") + ylab("Mean Difference") +
@@ -24658,12 +24767,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.cat.x,
                                         y = maxeig.polygon.cat.y),
                fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = maxeig.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
+  scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
+                                round(maxeig.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -24678,9 +24790,9 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = maxeig.polygon.dim.x,
                                         y = maxeig.polygon.dim.y),
                fill = "#5aa007") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = maxeig.line1.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(aes(y = maxeig.line2.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
   xlab("Score") + ylab("Eigen Value") +
@@ -24688,21 +24800,36 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   ) 
 #L-Mode
 
 lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.cat.x, y = lmode.polygon.cat.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.cat.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.cat.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
+  scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
+                                round(lmode.y.range[2], digits = 1),
+                                by = 0.1)) +
   theme(
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
@@ -24715,9 +24842,17 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(size = 1.5) +
   geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
   geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_line(size = 1.5) +
+  geom_segment(aes(x = lmode.vline1.cat.x[1],
+                   y = lmode.vline1.cat.y[1],
+                   xend = lmode.vline1.cat.x[2],
+                   yend = lmode.vline1.cat.y[2]), size = 1) +
+  geom_segment(aes(x = lmode.vline2.cat.x[1],
+                   y = lmode.vline2.cat.y[1],
+                   xend = lmode.vline2.cat.x[2],
+                   yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
   xlab("Factor Score") + ylab("Density") +
@@ -24725,10 +24860,14 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
     plot.title = element_text(size=12, hjust = 0.5),
     axis.title = element_text(size = 12),
     axis.text = element_text(size = 12),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
-    axis.line = element_line(colour = "black", size = 0.9)
+    axis.line = element_line(colour = "black", size = 0.9),
+    axis.line.y = element_blank()
   )
 
 #Grid
@@ -24736,4 +24875,3 @@ grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim,
              nrow = 3,
              top=textGrob("HGSHS:A subscales; p = .10",
              gp = gpar(fontsize = 14, fontface = 'bold')))
-

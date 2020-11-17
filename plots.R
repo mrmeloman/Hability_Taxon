@@ -1,6 +1,10 @@
 library("ggplot2")
 library(gridExtra)
 library(grid)
+library(ggpubr)
+library(extrafont)
+font_import()
+loadfonts(device="win")       #Register fonts for Windows bitmap output
 
 
 # Involuntariness subscales; p = .15 --------------------------------------
@@ -6057,15 +6061,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
                                 round(mambac.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -6081,12 +6086,13 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -6108,14 +6114,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
                                 round(maxeig.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -6131,11 +6138,12 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -6162,14 +6170,15 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
                                 round(lmode.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -6191,11 +6200,12 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -6208,11 +6218,10 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
 
 #Grid
 
+grid.title <- textGrob(expression(bold("Involuntariness subscales ("~bolditalic("a priori")~"base rate: .15 )")), gp = gpar(fontsize = 14, fontfamily = "Arial"))
 grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
              nrow = 3,
-             top=textGrob("Involuntariness subscales; p = .15",
-                          gp = gpar(fontsize = 14, fontface = 'bold')))
-
+             top=grid.title)
 
 
 
@@ -12271,15 +12280,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
                                 round(mambac.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -12295,12 +12305,13 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -12322,14 +12333,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
                                 round(maxeig.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -12345,11 +12357,12 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -12376,14 +12389,15 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
                                 round(lmode.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -12405,11 +12419,12 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -12421,10 +12436,10 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 #Grid
+grid.title <- textGrob(expression(bold("Involuntariness subscales ("~bolditalic("a priori")~"base rate: .10 )")), gp = gpar(fontsize = 14, fontfamily = "Arial"))
 grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
              nrow = 3,
-             top=textGrob("Involuntariness subscales; p = .10",
-                          gp = gpar(fontsize = 14, fontface = 'bold')))
+             top=grid.title)
 
 
 
@@ -18496,15 +18511,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
                                 round(mambac.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -18520,12 +18536,13 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -18547,14 +18564,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
                                 round(maxeig.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -18570,11 +18588,12 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -18601,14 +18620,15 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
                                 round(lmode.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -18630,11 +18650,12 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -18646,13 +18667,13 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 #Grid
+grid.title <- textGrob(expression(bold("HGSHS:A subscales ("~bolditalic("a priori")~"base rate: .15 )")), gp = gpar(fontsize = 14, fontfamily = "Arial"))
 grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
              nrow = 3,
-             top=textGrob("HGSHS:A subscales; p = .15",
-                          gp = gpar(fontsize = 14, fontface = 'bold')))
+             top=grid.title)
 
 
-# Suggestibility subscales; p = .15 --------------------------------------
+# Suggestibility subscales; p = .10 --------------------------------------
 # MAMBAC ------------------------------------------------------------------
 
 mambac.empcurve.x <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
@@ -24721,15 +24742,16 @@ mambac.plot.cat <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   ylim(mambac.y.range) +
   ggtitle(label = "Categorical comparison data",
           subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   scale_y_continuous(breaks=seq(round(mambac.y.range[1], digits = 1),
                                 round(mambac.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -24745,12 +24767,13 @@ mambac.plot.dim <- ggplot(mamb.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(mambac.y.range) +
   ggtitle(label = "Dimensional comparison data", subtitle = "MAMBAC") +
-  xlab("Cut") + ylab("Mean Difference") +
+  xlab("Cut") + ylab("Mean difference") +
   theme(
-    plot.title = element_text(size=16, hjust = 0.5),
-    plot.subtitle = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=16, hjust = 0.5, family = "Arial"),
+    plot.subtitle = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -24772,14 +24795,15 @@ maxeig.plot.cat <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   scale_y_continuous(breaks=seq(round(maxeig.y.range[1], digits = 1),
                                 round(maxeig.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -24795,11 +24819,12 @@ maxeig.plot.dim <- ggplot(maxe.emp, aes(x = xvalues, y = yvalues)) +
   geom_line(size = 1.5) +
   ylim(maxeig.y.range) +
   ggtitle(label = "MAXEIG") +
-  xlab("Score") + ylab("Eigen Value") +
+  xlab("Score") + ylab("Eigenvalue") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -24826,14 +24851,15 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   scale_y_continuous(breaks=seq(round(lmode.y.range[1], digits = 1),
                                 round(lmode.y.range[2], digits = 1),
                                 by = 0.1)) +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     panel.background = element_blank(),
@@ -24855,11 +24881,12 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
                    yend = lmode.vline2.cat.y[2]), size = 1) +
   ylim(lmode.y.range) +
   ggtitle(label = "L-Mode") +
-  xlab("Factor Score") + ylab("Density") +
+  xlab("Factor score") + ylab("Density") +
   theme(
-    plot.title = element_text(size=12, hjust = 0.5),
-    axis.title = element_text(size = 12),
-    axis.text = element_text(size = 12),
+    plot.title = element_text(size=12, hjust = 0.5, family = "Arial"),
+    axis.title = element_text(size = 12, family = "Arial"),
+    axis.text = element_text(colour = "black", size = 12, family = "Arial"),
+    axis.ticks = element_line(colour = "black"),
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -24871,7 +24898,7 @@ lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 #Grid
+grid.title <- textGrob(expression(bold("HGSHS:A subscales ("~bolditalic("a priori")~"base rate: .10 )")), gp = gpar(fontsize = 14, fontfamily = "Arial"))
 grid.arrange(mambac.plot.cat, mambac.plot.dim, maxeig.plot.cat, maxeig.plot.dim, lmode.plot.cat, lmode.plot.dim,
              nrow = 3,
-             top=textGrob("HGSHS:A subscales; p = .10",
-             gp = gpar(fontsize = 14, fontface = 'bold')))
+             top=grid.title)

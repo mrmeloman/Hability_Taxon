@@ -1,4 +1,10 @@
+library("writexl")
+
 demographics <- read.csv("oxford_hgshsa_260820_demographics.csv", sep = ";")
+
+demographics$missing <- data.export$has.na
+
+write_xlsx(demographics,"hab_taxon_demographics_2020_final_exported.xlsx")
 
 data <- read.csv("oxford_hgshsa_260820_modded.csv", sep = ";")
 

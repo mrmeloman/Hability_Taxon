@@ -6186,9 +6186,10 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
-  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y),
+               fill = "#5aa007") +
+  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(size = 1.5) +
   geom_segment(aes(x = lmode.vline1.cat.x[1],
                    y = lmode.vline1.cat.y[1],
@@ -12405,9 +12406,9 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
-  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#5aa007") +
+  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(size = 1.5) +
   geom_segment(aes(x = lmode.vline1.cat.x[1],
                    y = lmode.vline1.cat.y[1],
@@ -18636,9 +18637,9 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
-  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#5aa007") +
+  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(size = 1.5) +
   geom_segment(aes(x = lmode.vline1.cat.x[1],
                    y = lmode.vline1.cat.y[1],
@@ -24867,9 +24868,9 @@ lmode.plot.cat <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
   )
 
 lmode.plot.dim <- ggplot(lmo.emp, aes(x = xvalues, y = yvalues)) +
-  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#0b5db5") +
-  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#0b5db5") +
-  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#0b5db5") +
+  geom_polygon(inherit.aes = FALSE, aes(x = lmode.polygon.dim.x, y = lmode.polygon.dim.y), fill = "#5aa007") +
+  geom_line(aes(y = lmode.line1.dim.y), size = 1.2, color = "#5aa007") +
+  geom_line(aes(y = lmode.line2.dim.y), size = 1.2, color = "#5aa007") +
   geom_line(size = 1.5) +
   geom_segment(aes(x = lmode.vline1.cat.x[1],
                    y = lmode.vline1.cat.y[1],
